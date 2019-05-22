@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class HelloConsumerController {
+    //用下面这样指定服务提供者url的方式可以做到服务直连，不经过zookeeper
+    //@Reference(interfaceName = "com.czh.api.service.HelloService",url = "dubbo://ip:20880",application = "dubbo-provider",timeout = 3000,version = "${demo.service.version}")
     @Reference(version = "${demo.service.version}")
     private HelloService helloService;
 
